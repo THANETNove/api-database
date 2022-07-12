@@ -30,17 +30,16 @@ if (isset($_POST)) {
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
 		$location = $_POST['location'];
-        $var = json_decode($location);
 		$technician_1 = $_POST['technician_1'];
 		$technician_2 = $_POST['technician_2'];
-		$technician_3 = $_POST['technician_3']; 
       
-		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location`, `technician_1`, `technician_2`, `technician_3`) VALUES (Null, '$idPhone', '$name','$address_user','$subdistrict','$district','$province','$zipcode','$var','$technician_1','$technician_2','$technician_2')";
+		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location`, `technician_1`, `technician_2`) VALUES (Null, '$idPhone', '$name','$address_user','$subdistrict','$district','$province','$zipcode','$location','$technician_1','$technician_2')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
-			return $result;
+			
+			/* return */echo $result;
 		} else {
-			return $result;
+			/* return */echo $result;
 		}
 	} else echo "Welcome Master UNG";
    

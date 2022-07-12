@@ -20,11 +20,11 @@ if (!$link->set_charset("utf8")) {
 
 if (isset($_GET)) {
 
-/* 	print_r($_GET); */
+
 	if ($_GET['isAdd'] == 'true') {
 		$phone = $_GET['phone'];
-        $password = $_GET['password'];
-		$result = mysqli_query($link, "SELECT * FROM users WHERE users.phone='$phone' AND users.password='$password'");
+		$result = mysqli_query($link, "SELECT * FROM users  LEFT JOIN address
+		ON users.id = address.idPhone WHERE phone='$phone'");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;
