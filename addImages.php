@@ -10,7 +10,7 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 $response = array();
 $upload_dir = "image/";
 chmod($upload_dir, 0755);
-$server_url = 'http://192.168.1.4/project/api-database/image/';
+$server_url = 'http://192.168.1.4/project/api-database/';
 if(isset($_FILES["avatar"]) || is_uploaded_file($_FILES["avatar"]["tmp_name"]) || $_FILES["avatar"]["error"] = 0)
 {
     //print_r($_FILES);
