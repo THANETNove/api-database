@@ -20,8 +20,9 @@ if (!$link->set_charset("utf8")) {
 
 	
 if (isset($_POST)) {
-	print_r($_POST);
+
 	if ($_POST['isAdd'] == 'true') {	
+		print_r($_POST);
 		$phone = $_POST['phone'];
 		$password = $_POST['password'];
 		$status_user = $_POST['status_user'];
@@ -30,9 +31,11 @@ if (isset($_POST)) {
 		$sql = "INSERT INTO `users`(`id`, `phone`, `password`, `status_user`, `status_check`) VALUES (Null, '$phone', '$password','$status_user','$status_check')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
-			return $result;
+			echo "Welcome 1 ";
+			/* return $result; */
 		} else {
-			return $result;
+			echo "Welcome 2 ";
+			/* return $result; */
 		}
 	} else echo "Welcome Master UNG";
    

@@ -33,7 +33,7 @@ if (isset($_POST)) {
 		$technician_1 = $_POST['technician_1'];
 		$technician_2 = $_POST['technician_2']; 
       
-		$sql =   "UPDATE address SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
+		$sql = "UPDATE address SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
         district='$district',province='$province' ,zipcode='$zipcode', location='$location' , technician_1='$technician_1',technician_2='$technician_2'
          WHERE id='$id' ";
 

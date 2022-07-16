@@ -20,20 +20,21 @@ if (!$link->set_charset("utf8")) {
 
 	
 if (isset($_POST)) {
-	print_r($_POST);
+	
 	if ($_POST['isAdd'] == 'true') {	
 		$id_user = $_POST['id_user'];
 		$name = $_POST['name'];
 		$number_bank = $_POST['number_bank'];
 		$bank = $_POST['bank'];
-
-		$sql = "INSERT INTO `book_bank`(`id`, `id_user`, `name`, `number_bank`, `bank`) VALUES (Null, '$id_user', '$name','$number_bank','$bank')";
+		print_r("asdas");
+		$sql = "INSERT INTO `book_banks`(`id`, `id_user`, `name`, `number_bank`, `bank`) VALUES (Null, '$id_user', '$name','$number_bank','$bank')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			return $result;
 		} else {
 			return $result;
 		}
+		
 	} else echo "Welcome Master UNG";
    
 }
