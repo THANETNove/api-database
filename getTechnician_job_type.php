@@ -22,7 +22,7 @@ if (isset($_GET)) {
 
 
 	if ($_GET['isAdd'] == 'true') {
-		$result = mysqli_query($link, "SELECT technician_type FROM technician_job_type");
+		$result = mysqli_query($link, "SELECT technician_type,image_name FROM technician_job_type");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;
