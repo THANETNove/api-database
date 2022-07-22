@@ -29,9 +29,10 @@ if (isset($_POST)) {
 		$district = $_POST['district'];
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
+		$phone_number = $_POST['phone_number'];
 		$location = $_POST['location'];
       
-		$sql = "INSERT INTO `address_users`(`id`,`idPhone`, `name`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location` ) VALUES (Null, '$idPhone', '$name','$address_user','$subdistrict','$district','$province','$zipcode','$location')";
+		$sql = "INSERT INTO `address_users`(`id`,`idPhone`, `name`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `phone_number`, `location` ) VALUES (Null, '$idPhone', '$name','$address_user','$subdistrict','$district','$province','$zipcode','$phone_number', '$location')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			

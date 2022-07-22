@@ -29,10 +29,11 @@ if (isset($_POST)) {
  		$district = $_POST['district'];
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
+		$phone_number = $_POST['phone_number'];
 		$location = $_POST['location'];
       
 		$sql = "UPDATE address_users SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
-        district='$district',province='$province' ,zipcode='$zipcode', location='$location'
+        district='$district',province='$province' ,zipcode='$zipcode' phone_number='$phone_number', location='$location'
          WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);
