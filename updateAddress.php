@@ -15,7 +15,7 @@ if (!$link) {
 if (!$link->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $link->error);
     exit();
-	}
+	} 
 
 
 	
@@ -35,7 +35,7 @@ if (isset($_POST)) {
 		$technician_2 = $_POST['technician_2']; 
       
 		$sql = "UPDATE address SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
-        district='$district',province='$province' ,zipcode='$zipcode', phone_number='$phone_number' location='$location' , technician_1='$technician_1',technician_2='$technician_2'
+        district='$district',province='$province' ,zipcode='$zipcode', phone_number='$phone_number', location='$location' , technician_1='$technician_1',technician_2='$technician_2'
          WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);
