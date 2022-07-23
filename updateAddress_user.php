@@ -33,7 +33,7 @@ if (isset($_POST)) {
 		$location = $_POST['location'];
       
 		$sql = "UPDATE address_users SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
-        district='$district',province='$province' ,zipcode='$zipcode' phone_number='$phone_number', location='$location'
+        district='$district',province='$province' ,zipcode='$zipcode', phone_number='$phone_number', location='$location'
          WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);
