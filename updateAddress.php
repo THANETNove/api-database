@@ -24,18 +24,18 @@ if (isset($_POST)) {
 	if ($_POST['isAdd'] == 'true') {	
 		$id = $_POST['id'];
 		$name = $_POST['name'];
+		$phone_number = $_POST['phone_number'];
 		 $address_user = $_POST['addressUser'];
 		$subdistrict = $_POST['subdistrict'];
  		$district = $_POST['district'];
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
-		$phone_number = $_POST['phone_number'];
 		$location = $_POST['location'];
 		$technician_1 = $_POST['technician_1'];
 		$technician_2 = $_POST['technician_2']; 
       
-		$sql = "UPDATE address SET  name='$name',address='$address_user' , subdistrict='$subdistrict',
-        district='$district',province='$province' ,zipcode='$zipcode', phone_number='$phone_number', location='$location' , technician_1='$technician_1',technician_2='$technician_2'
+		$sql = "UPDATE address SET  name='$name', phone_number='$phone_number', address='$address_user' , subdistrict='$subdistrict',
+        district='$district',province='$province' ,zipcode='$zipcode', location='$location' , technician_1='$technician_1',technician_2='$technician_2'
          WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);

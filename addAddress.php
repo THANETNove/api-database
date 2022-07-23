@@ -24,17 +24,17 @@ if (isset($_POST)) {
 	if ($_POST['isAdd'] == 'true') {	
 		$idPhone = $_POST['idPhone'];
 		$name = $_POST['name'];
+		$phone_number = $_POST['phone_number'];
 		$address_user = $_POST['addressUser'];
 		$subdistrict = $_POST['subdistrict'];
 		$district = $_POST['district'];
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
-		$phone_number = $_POST['phone_number'];
 		$location = $_POST['location'];
 		$technician_1 = $_POST['technician_1'];
 		$technician_2 = $_POST['technician_2'];
       
-		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `address`, `subdistrict`, `district`, `province`,`zipcode`,`phone_number`, `location`, `technician_1`, `technician_2`) VALUES (Null, '$idPhone', '$name','$address_user','$subdistrict','$district','$province','$zipcode','$phone_number','$location','$technician_1','$technician_2')";
+		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `phone_number`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location`, `technician_1`, `technician_2`) VALUES (Null, '$idPhone', '$name', '$phone_number','$address_user','$subdistrict','$district','$province','$zipcode','$location','$technician_1','$technician_2')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			
