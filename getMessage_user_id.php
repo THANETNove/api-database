@@ -26,7 +26,7 @@ if (isset($_GET)) {
         $id_tech = $_GET['id_tech'];
         $result = mysqli_query($link, "SELECT image_profile.id_user,image_profile.file_src,message.idUser,message.id_technician,
 		message.message, message.status_read,  message.status_user, message.created_at, message.id
-		FROM message  LEFT JOIN image_profile ON message.status_user = image_profile.id_user WHERE message.idUser='$id_user' AND message.id_technician='$id_tech'  LIMIT 50");
+		FROM message  LEFT JOIN image_profile ON message.idUser = image_profile.id_user WHERE message.idUser='$id_user' AND message.id_technician='$id_tech'  LIMIT 50");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;
