@@ -25,6 +25,7 @@ if (isset($_POST)) {
 		$idPhone = $_POST['idPhone'];
 		$name = $_POST['name'];
 		$phone_number = $_POST['phone_number'];
+		$email = $_POST['email'];
 		$address_user = $_POST['addressUser'];
 		$subdistrict = $_POST['subdistrict'];
 		$district = $_POST['district'];
@@ -34,7 +35,7 @@ if (isset($_POST)) {
 		$technician_1 = $_POST['technician_1'];
 		$technician_2 = $_POST['technician_2'];
       
-		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `phone_number`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location`, `technician_1`, `technician_2`) VALUES (Null, '$idPhone', '$name', '$phone_number','$address_user','$subdistrict','$district','$province','$zipcode','$location','$technician_1','$technician_2')";
+		$sql = "INSERT INTO `address`(`id`,`idPhone`, `name`, `phone_number`,`email`, `address`, `subdistrict`, `district`, `province`,`zipcode`, `location`, `technician_1`, `technician_2`) VALUES (Null, '$idPhone', '$name', '$phone_number','$email','$address_user','$subdistrict','$district','$province','$zipcode','$location','$technician_1','$technician_2')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			

@@ -25,6 +25,7 @@ if (isset($_POST)) {
 		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$phone_number = $_POST['phone_number'];
+		$email = $_POST['email'];
 		 $address_user = $_POST['addressUser'];
 		$subdistrict = $_POST['subdistrict'];
  		$district = $_POST['district'];
@@ -32,7 +33,7 @@ if (isset($_POST)) {
 		$zipcode = $_POST['zipcode'];
 		$location = $_POST['location'];
       
-		$sql = "UPDATE address_users SET  name='$name', phone_number='$phone_number', address='$address_user' , subdistrict='$subdistrict',
+		$sql = "UPDATE address_users SET  name='$name', phone_number='$phone_number',  email='$email', address='$address_user' , subdistrict='$subdistrict',
         district='$district',province='$province' ,zipcode='$zipcode',  location='$location'
          WHERE id='$id' ";
 
