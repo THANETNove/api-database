@@ -11,7 +11,8 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 $response = array();
 $upload_dir = "images/";
 chmod($upload_dir, 0755);
-$server_url = 'http://192.168.1.4/project/api-database/';
+/* $server_url = 'http://192.168.1.4/project/api-database/'; */
+$server_url = 'http://th-projet.com/api-database/';
 if(isset($_POST["image"]) || is_uploaded_file($_POST["image"]["tmp_name"]) || $_POST["image"]["error"] = 0)
 {
     print_r($_POST);

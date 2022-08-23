@@ -2,7 +2,8 @@
 header("content-type:text/javascript;charset=utf-8");
 error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
-$link = mysqli_connect('localhost', 'root', '', "app_tradesman");
+/* $link = mysqli_connect('localhost', 'root', '', "app_tradesman"); */
+$link = mysqli_connect('localhost', 'leavethc_api-appOnline', '12345678', "leavethc_api-appOnline");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -27,8 +28,9 @@ if (isset($_POST)) {
 		$password = $_POST['password'];
 		$status_user = $_POST['status_user'];
 		$status_check = $_POST['status_check'];
+		$notificationsId = $_POST['notificationsId'];
 
-		$sql = "INSERT INTO `users`(`id`, `phone`, `password`, `status_user`, `status_check`) VALUES (Null, '$phone', '$password','$status_user','$status_check')";
+		$sql = "INSERT INTO `users`(`id`, `phone`, `password`, `status_user`, `status_check`,`notificationsId`) VALUES (Null, '$phone', '$password','$status_user','$status_check','$notificationsId')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			echo "Welcome 1 ";
