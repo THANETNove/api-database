@@ -23,7 +23,7 @@ if (isset($_GET)) {
    /*      print_r($_GET); */
 	if ($_GET['isAdd'] == 'true') {
 		$id = $_GET['id'];
-		$result = mysqli_query($link, "SELECT * FROM address_users  WHERE idPhone='$id'");
+		$result = mysqli_query($link, "SELECT * FROM users  LEFT JOIN address_users ON address_users.idPhone = users.id WHERE users.id='$id'");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;

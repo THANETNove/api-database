@@ -24,8 +24,11 @@ if (isset($_GET)) {
 
 	if ($_GET['isAdd'] == 'true') {
         $id = $_GET['id'];
-        $result = mysqli_query($link, "SELECT * FROM message  LEFT JOIN image_profile ON message.status_user = image_profile.id_user WHERE message.idUser='$id' 
-		GROUP BY message.id_technician");
+        $result = mysqli_query($link, "SELECT * FROM message 
+		LEFT JOIN image_profile ON message.idUser = image_profile.id_user
+		LEFT JOIN address ON message.id_technician  = address.idPhone 
+		 WHERE message.idUser='$id'
+	 	GROUP BY message.id_technician");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;

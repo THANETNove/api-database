@@ -2,7 +2,7 @@
 header("content-type:text/javascript;charset=utf-8");
 error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
-/* $link = mysqli_connect('localhost', 'root', '', "app_tradesman");*/
+/* $link = mysqli_connect('localhost', 'root', '', "app_tradesman"); */
 $link = mysqli_connect('localhost', 'leavethc_api-appOnline', '12345678', "leavethc_api-appOnline");
 
 if (!$link) {
@@ -24,7 +24,9 @@ if (isset($_GET)) {
 
 	if ($_GET['isAdd'] == 'true') {
         $id = $_GET['id'];
-        $result = mysqli_query($link, "SELECT * FROM message  LEFT JOIN image_profile ON message.idUser = image_profile.id_user WHERE message.id_technician='$id' 
+        $result = mysqli_query($link, "SELECT * FROM message 
+		LEFT JOIN image_profile ON message.idUser = image_profile.id_user 
+		LEFT JOIN address_users ON message.idUser  = address_users.idPhone  WHERE message.id_technician='$id'
 		GROUP BY message.idUser");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
