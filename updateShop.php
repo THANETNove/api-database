@@ -27,7 +27,7 @@ if (isset($_POST)) {
 		$heading = $_POST['heading'];
 		$detail = $_POST['detail'];
 
-		$sql = "UPDATE shop SET  detail='$detail', detail='$detail'
+		$sql = "UPDATE shop SET  heading='$heading', detail='$detail'
          WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);
