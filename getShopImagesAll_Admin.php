@@ -22,12 +22,11 @@ if (!$link->set_charset("utf8")) {
 if (isset($_GET)) {
    /*      print_r($_GET); */
 	if ($_GET['isAdd'] == 'true') {
-		$status = "true";
 		$result = mysqli_query($link, "SELECT 
         shop.id,shop.id_shop,shop.heading,shop.detail,shop.status,
         image_shop.id_user,image_shop.url_shop,image_shop.url_shop FROM shop 
         LEFT JOIN image_shop ON shop.id_shop = image_shop.id_user  
-		WHERE shop.status = '$status' GROUP BY shop.id" );
+		WHERE shop.status IS NULL GROUP BY shop.id" );
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;

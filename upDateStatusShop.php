@@ -16,31 +16,28 @@ if (!$link) {
 if (!$link->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $link->error);
     exit();
-	}
+	} 
 
 
-if (isset($_GET)) {
-   /*      print_r($_GET); */
-	if ($_GET['isAdd'] == 'true') {
-		$status = "true";
-		$result = mysqli_query($link, "SELECT 
-        shop.id,shop.id_shop,shop.heading,shop.detail,shop.status,
-        image_shop.id_user,image_shop.url_shop,image_shop.url_shop FROM shop 
-        LEFT JOIN image_shop ON shop.id_shop = image_shop.id_user  
-		WHERE shop.status = '$status' GROUP BY shop.id" );
+	
+if (isset($_POST)) {
+    print_r($_POST);
+	if ($_POST['isAdd'] == true) {	
+		$id = $_POST['id'];
+		$status = $_POST['status'];
+		$comment = $_POST['comment'];
+		$sql = "UPDATE shop SET  status='$status', comment='$comment'
+         WHERE id='$id' ";
+
+		$result = mysqli_query($link, $sql);
 		if ($result) {
-			while($row=mysqli_fetch_assoc($result)){
-			$output[]=$row;
-			}	// while
-			echo json_encode($output);
-		}else{
-			echo 'null'; 
+			
+			return "true";
+		} else {
+			return "error";
 		}
-
-	} else echo "Welcome Master UNG";	// if2
+	} else echo "Welcome Master UNG";
    
-}	// if1
-
-
+}
 	mysqli_close($link);
 ?>
