@@ -23,14 +23,22 @@ if (!$link->set_charset("utf8")) {
 if (isset($_POST)) {
 	
 	if ($_POST['isAdd'] == true) {	
-		$id_user = $_POST['id_user'];
+		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$phone = $_POST['phone'];
 		$nameRepairWork = $_POST['nameRepairWork'];
 		$repair_work = $_POST['repair_work'];
 		$address = $_POST['address'];
-		print_r("asdas");
-		$sql = "INSERT INTO `repairWork`(`id`, `id_user`, `name`, `phone`,`nameRepairWork`, `repair_work`,`address`,`statusAdmin`,`statusUser`) VALUES (Null, '$id_user', '$name','$phone','$nameRepairWork','$repair_work','$address',Null,Null)";
+		$statusAdmin = $_POST['statusAdmin'];
+		$statusUser = $_POST['statusUser'];
+        if ($statusAdmin == "1") {
+            $sql = "UPDATE repairWork SET statusAdmin='$statusAdmin'
+            WHERE id='$id'";
+        }
+        if ($statusUser == "1") {
+            $sql = "UPDATE repairWork SET statusUser='$statusUser'
+            WHERE id='$id'";
+        }
 		$result = mysqli_query($link, $sql);
 		if ($result) {
 			return $result;

@@ -19,27 +19,23 @@ if (!$link->set_charset("utf8")) {
 	}
 
 
-	
-if (isset($_POST)) {
-	
-	if ($_POST['isAdd'] == true) {	
-		$id_user = $_POST['id_user'];
-		$name = $_POST['name'];
-		$phone = $_POST['phone'];
-		$nameRepairWork = $_POST['nameRepairWork'];
-		$repair_work = $_POST['repair_work'];
-		$address = $_POST['address'];
-		print_r("asdas");
-		$sql = "INSERT INTO `repairWork`(`id`, `id_user`, `name`, `phone`,`nameRepairWork`, `repair_work`,`address`,`statusAdmin`,`statusUser`) VALUES (Null, '$id_user', '$name','$phone','$nameRepairWork','$repair_work','$address',Null,Null)";
-		$result = mysqli_query($link, $sql);
+if (isset($_GET)) {
+   /*      print_r($_GET); */
+	if ($_GET['isAdd'] == 'true') {
+		$id = $_GET['id'];
+		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE  repairWork.id_user='$id' AND repairWork.statusAdmin='1' 
+		AND repairWork.statusUser IS NULL ORDER BY id DESC");
 		if ($result) {
-			return $result;
-		} else {
-			return $result;
-		}
-		
-	} else echo "Welcome Master UNG";
+			while($row=mysqli_fetch_assoc($result)){
+			$output[]=$row;
+			}	// while
+			echo json_encode($output);
+		} //if
+
+	} else echo "Welcome Master UNG";	// if2
    
-}
+}	// if1
+/*  AND repairWork.statusAdmin='1' AND repairWork.statusUser != '1' */ 
+
 	mysqli_close($link);
 ?>
