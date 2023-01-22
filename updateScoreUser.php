@@ -24,22 +24,10 @@ if (isset($_POST)) {
 	
 	if ($_POST['isAdd'] == true) {	
 		$id = $_POST['id'];
-		$name = $_POST['name'];
-		$phone = $_POST['phone'];
-		$nameRepairWork = $_POST['nameRepairWork'];
-		$repair_work = $_POST['repair_work'];
-		$address = $_POST['address'];
-		$statusAdmin = $_POST['statusAdmin'];
-		$statusUser = $_POST['statusUser'];
-        if ($statusAdmin != "null") {
-            $sql = "UPDATE repairWork SET statusAdmin='$statusAdmin'
-            WHERE id='$id'";
-        }
-        if ($statusUser != "null") {
-            $sql = "UPDATE repairWork SET statusUser='$statusUser'
-            WHERE id='$id'";
-        }
+		$score = $_POST['score'];
+            $sql = "UPDATE users SET score='$score'  WHERE id='$id'";
 		$result = mysqli_query($link, $sql);
+        
 		if ($result) {
 			return $result;
 		} else {
