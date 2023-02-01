@@ -34,9 +34,7 @@ if (isset($_POST)) {
 		$zipcode = $_POST['zipcode'];
 		$location = $_POST['location'];
       
-		$sql = "UPDATE address_users SET  name='$name', phone_number='$phone_number',  email='$email', address='$address_user' , subdistrict='$subdistrict',
-        district='$district',province='$province' ,zipcode='$zipcode',  location='$location'
-         WHERE id='$id' ";
+		$sql = "UPDATE address_users SET  name='$name', phone_number='$phone_number',  email='$email', address='$address_user' , subdistrict='$subdistrict',district='$district',province='$province' ,zipcode='$zipcode',  location='$location'   WHERE id='$id' ";
 
 		$result = mysqli_query($link, $sql);
 		if ($result) {
