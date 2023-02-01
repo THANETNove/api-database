@@ -33,7 +33,7 @@ if (isset($_POST)) {
 		$province = $_POST['province'];
 		$zipcode = $_POST['zipcode'];
 		$location = $_POST['location'];
-      
+		echo $result;
 		$sql = "INSERT INTO `address_users`(`id`,`idPhone`, `name`, `phone_number`,`email`,`address`, `subdistrict`, `district`, `province`,`zipcode`, `location` ) VALUES (Null, '$idPhone', '$name','$phone_number','$email','$address_user','$subdistrict','$district','$province','$zipcode', '$location')";
 		$result = mysqli_query($link, $sql);
 		if ($result) {

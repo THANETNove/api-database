@@ -39,3 +39,4 @@ if (isset($_POST)) {
 }
 	mysqli_close($link);
 ?>
+//getAddress_user
