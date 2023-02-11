@@ -23,7 +23,7 @@ if (isset($_GET)) {
    /*      print_r($_GET); */
 	if ($_GET['isAdd'] == 'true') {
 		$id = $_GET['id'];
-		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE  repairWork.id_user='$id' AND repairWork.statusAdmin='1' 
+		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE  repairWork.id_user='$id' AND repairWork.statusAdmin IS NULL 
 		AND repairWork.statusUser IS NULL ORDER BY id DESC");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
