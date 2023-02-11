@@ -22,7 +22,7 @@ if (!$link->set_charset("utf8")) {
 if (isset($_GET)) {
    /*      print_r($_GET); */
 	if ($_GET['isAdd'] == 'true') {
-		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE   repairWork.statusAdmin='1'  ORDER BY id ASC");
+		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE   repairWork.statusAdmin='1'  AND repairWork.idTechnician IS NULL ORDER BY id ASC");
 		if ($result) {
 			while($row=mysqli_fetch_assoc($result)){
 			$output[]=$row;
