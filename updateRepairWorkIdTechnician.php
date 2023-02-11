@@ -19,23 +19,24 @@ if (!$link->set_charset("utf8")) {
 	}
 
 
-if (isset($_GET)) {
-   /*      print_r($_GET); */
-	if ($_GET['isAdd'] == 'true') {
-		$id = $_GET['id'];
-		$result = mysqli_query($link, "SELECT * FROM repairWork  WHERE  repairWork.id_user='$id' AND repairWork.statusAdmin IS NOT NULL 
-		AND repairWork.statusUser IS NULL ORDER BY id DESC");
+	
+if (isset($_POST)) {
+	
+	if ($_POST['isAdd'] == true) {	
+		$id = $_POST['id'];
+		$id_user = $_POST['id_user'];
+            $sql = "UPDATE repairWork SET idTechnician='$id_user'
+            WHERE id='$id'";
+    
+		$result = mysqli_query($link, $sql);
 		if ($result) {
-			while($row=mysqli_fetch_assoc($result)){
-			$output[]=$row;
-			}	// while
-			echo json_encode($output);
-		} //if
-
-	} else echo "Welcome Master UNG";	// if2
+			return $result;
+		} else {
+			return $result;
+		}
+		
+	} else echo "Welcome Master UNG";
    
-}	// if1
-/*  AND repairWork.statusAdmin='1' AND repairWork.statusUser != '1' */ 
-
+}
 	mysqli_close($link);
 ?>
