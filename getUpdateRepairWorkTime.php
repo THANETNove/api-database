@@ -22,22 +22,34 @@ if (!$link->set_charset("utf8")) {
 	
 if (isset($_POST)) {
 	
-	if ($_POST['isAdd'] == true) {	
-		$id = $_POST['id'];
-        $id_user = $_POST['id_user'];
-		$nameTechnician = $_POST['nameTechnician'];
-		$telTechnician = $_POST['telTechnician'];
-	
-            $sql = "UPDATE repairWork SET idTechnician='$id_user',nameTechnician='${nameTechnician}',telTechnician='${telTechnician}'
-            WHERE id='$id'";
-    
-		$result = mysqli_query($link, $sql);
+	if ($_GET['isAdd'] == true) {	
+
+		$date = date_create();
+		$date = date_format($date, 'Y-m-d');
+		$dateSub= date("Y-m-d", strtotime("-5 day", strtotime($date)));
+		$result = mysqli_query($link, "SELECT  * FROM repairWork  where created_at<'$dateSub' AND idTechnician IS NULL  ORDER BY id DESC");
 		if ($result) {
-			return $result;
-		} else {
-			return $result;
+			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$output[]=$row;
+			}	// while
 		}
+
+		if ($output != null) {
+			foreach ($output as $value => $item) {
+			 $id = $item['id'];
+			 
+			$sql = "UPDATE repairWork SET  idTechnician='0' WHERE id='$id'";
+			$result = mysqli_query($link, $sql);
+			}
 		
+			if ($result) {
+				return $result;
+			} else {
+				return $result;
+			}
+			  
+		}
+
 	} else echo "Welcome Master UNG";
    
 }
